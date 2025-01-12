@@ -1,0 +1,25 @@
+# ビルド結果
+bin/
+obj/
+
+# Visual Studioの一時ファイル
+.vs/
+*.user
+*.suo
+*.cache
+*.log
+
+# デバッグ関連
+*.pdb
+
+# NuGetパッケージ
+packages/
+
+# テスト結果
+TestResults/
+
+# その他
+*.exe
+*.dll
+*.nupkg
+Thumbs.db
