@@ -1,4 +1,5 @@
 ﻿using CSharpStudy.Models;
+using CSharpStudy.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,6 +37,12 @@ public static class Chapter2
                 sales.Add(sale);
             }
             return sales;
+        }
+        var sales = new SalesCounter(ReadSales("./Files/sales.csv"));
+        var amountPerSales = sales.GetPerStoreSales();
+        foreach (var amount in amountPerSales)
+        {
+            Console.WriteLine($"{amount.Key} {amount.Value}円");
         }
     }
 }
