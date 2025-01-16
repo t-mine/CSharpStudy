@@ -20,25 +20,7 @@ public static class Chapter2
             Console.WriteLine($"{feet}ft = {meter:0.0000}m");
         }
         // 2.2 売上集計プログラム
-        static List<Sale> ReadSales(string filePath)
-        {
-            List<Sale> sales = new List<Sale>();
-            string[] lines = File.ReadAllLines(filePath); // ReadAllLinesは何万行もあるファイルには不向き
-            foreach (string line in lines)
-            {
-                string[] items = line.Split(",");
-                // newのとき()を省略できる
-                Sale sale = new Sale
-                {
-                    ShopName = items[0],
-                    ShopCategory = items[1],
-                    Amount = int.Parse(items[2])
-                };
-                sales.Add(sale);
-            }
-            return sales;
-        }
-        var sales = new SalesCounter(ReadSales("./Files/sales.csv"));
+        var sales = new SalesCounter("./Files/sales.csv");
         var amountPerSales = sales.GetPerStoreSales();
         foreach (var amount in amountPerSales)
         {

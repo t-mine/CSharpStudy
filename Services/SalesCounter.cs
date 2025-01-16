@@ -11,9 +11,9 @@ internal class SalesCounter
 {
     private readonly List<Sale> _sales;
 
-    public SalesCounter(List<Sale> sales)
+    public SalesCounter(string path)
     {
-        _sales = sales;
+        _sales = ReadSales(path);
     }
 
     /// <summary>
@@ -35,6 +35,25 @@ internal class SalesCounter
             }
         }
         return dict;
+    }
+
+    private static List<Sale> ReadSales(string filePath)
+    {
+        List<Sale> sales = new List<Sale>();
+        string[] lines = File.ReadAllLines(filePath); // ReadAllLinesは何万行もあるファイルには不向き
+        foreach (string line in lines)
+        {
+            string[] items = line.Split(",");
+            // newのとき()を省略できる
+            Sale sale = new Sale
+            {
+                ShopName = items[0],
+                ShopCategory = items[1],
+                Amount = int.Parse(items[2])
+            };
+            sales.Add(sale);
+        }
+        return sales;
     }
 
 }
