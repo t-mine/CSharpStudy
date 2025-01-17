@@ -9,7 +9,7 @@ namespace CSharpStudy.Services;
 
 internal class SalesCounter
 {
-    private readonly List<Sale> _sales;
+    private readonly IEnumerable<Sale> _sales;
 
     public SalesCounter(string path)
     {
@@ -20,7 +20,7 @@ internal class SalesCounter
     /// 店舗別売上を求める
     /// </summary>
     /// <returns></returns>
-    public Dictionary<string, int> GetPerStoreSales()
+    public IDictionary<string, int> GetPerStoreSales()
     {
         var dict = new Dictionary<string, int>();
         foreach (Sale sale in _sales)
@@ -37,7 +37,7 @@ internal class SalesCounter
         return dict;
     }
 
-    private static List<Sale> ReadSales(string filePath)
+    private static IEnumerable<Sale> ReadSales(string filePath)
     {
         List<Sale> sales = new List<Sale>();
         string[] lines = File.ReadAllLines(filePath); // ReadAllLinesは何万行もあるファイルには不向き
