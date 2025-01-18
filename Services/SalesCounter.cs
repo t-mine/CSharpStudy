@@ -37,6 +37,27 @@ internal class SalesCounter
         return dict;
     }
 
+    /// <summary>
+    /// カテゴリ別売上を求める
+    /// </summary>
+    /// <returns></returns>
+    public IDictionary<string, int> GetPerCategorySales()
+    {
+        var dict = new Dictionary<string, int>();
+        foreach (Sale sale in _sales)
+        {
+            if (dict.ContainsKey(sale.ShopCategory))
+            {
+                dict[sale.ShopCategory] += sale.Amount;
+            }
+            else
+            {
+                dict[sale.ShopCategory] = sale.Amount;
+            }
+        }
+        return dict;
+    }
+
     private static IEnumerable<Sale> ReadSales(string filePath)
     {
         List<Sale> sales = new List<Sale>();

@@ -21,12 +21,14 @@ public static class Chapter2
         }
         // 2.2 売上集計プログラム
         var sales = new SalesCounter("./Files/sales.csv");
-        var amountPerSales = sales.GetPerStoreSales();
-        foreach (var amount in amountPerSales)
+        var perStoreSales = sales.GetPerStoreSales();
+        foreach (var amount in perStoreSales)
         {
             Console.WriteLine($"{amount.Key} {amount.Value}円");
         }
         // 問題2.1
+        Console.WriteLine();
+        Console.WriteLine($"■問題2.1");
         var songs = new List<Song>();
         var song1 = new Song("冬のソナタ", "wai", 240);
         var song2 = new Song("頭の中の消しゴム", "ten", 350);
@@ -39,6 +41,8 @@ public static class Chapter2
             Console.WriteLine($"{song.Title}の演奏時間は {lengthMin}:{lengthSec:00} です。");
         }
         // 問題2.2
+        Console.WriteLine();
+        Console.WriteLine($"■問題2.2");
         static double InchToMeter(int inch)
         {
             var meterPerInch = 0.0254;
@@ -48,6 +52,14 @@ public static class Chapter2
         {
             var meter = InchToMeter(inch);
             Console.WriteLine($"{inch}inch = {meter:0.0000}m");
+        }
+        // 問題2.3
+        Console.WriteLine();
+        Console.WriteLine($"■問題2.3");
+        var perCategorySales = sales.GetPerCategorySales();
+        foreach (var amount in perCategorySales)
+        {
+            Console.WriteLine($"{amount.Key} {amount.Value}円");
         }
     }
 }
