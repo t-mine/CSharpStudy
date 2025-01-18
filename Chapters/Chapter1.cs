@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpStudy.Chapters.Chapter1;
+namespace CSharpStudy.Chapters;
 
 public static class Chapter1
 {
@@ -57,6 +57,6 @@ public static class Chapter1
         Console.WriteLine($"{nameof(student)}の{nameof(student.Grade)}は{student.Grade}です。");
         Console.WriteLine($"{nameof(student)}の{nameof(student.ClassNumber)}は{student.ClassNumber}です。");
         Person person = student;
-        Object obj = student;
+        object obj = student;
     }
 }

@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CSharpStudy.Chapters.Chapter2;
+namespace CSharpStudy.Chapters;
 
 public static class Chapter2
 {
@@ -46,7 +46,7 @@ public static class Chapter2
         static double InchToMeter(int inch)
         {
             var meterPerInch = 0.0254;
-            return (double)inch * meterPerInch;
+            return inch * meterPerInch;
         }
         for (int inch = 0; inch <= 10; inch++)
         {
