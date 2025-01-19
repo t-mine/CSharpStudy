@@ -25,9 +25,8 @@ public static class Chapter3
             }
             return count;
         }
-        var judge = (int x) => x > 5;
         var numbers = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-        var count = Count(numbers, judge);
+        var count = Count(numbers, x => x > 5);
         Console.WriteLine(count);
     }
 }
