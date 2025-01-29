@@ -10,3 +10,7 @@ Chapter2.Do();
 Console.WriteLine();
 Console.WriteLine("=== Chapter3 ===");
 Chapter3.Do();
+
+Console.WriteLine();
+Console.WriteLine("=== Chapter4 ===");
+Chapter4.Do();
