@@ -50,7 +50,7 @@ public static class Chapter4
         // 問題4.1.3
         var lang = langs.Find(lan => lan.Length == 10) ?? "unknown";
         // 問題4.2
-        var str = Console.ReadLine();
+        //var str = Console.ReadLine();
         // 問題4.2.1
         //if (int.TryParse(str, out int num))
         //{
