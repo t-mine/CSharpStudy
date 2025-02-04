@@ -1,6 +1,6 @@
 ﻿namespace CSharpStudy.Models;
 
-internal class YearMonth
+internal record YearMonth
 {
     public int Year { get; private set; }
 
