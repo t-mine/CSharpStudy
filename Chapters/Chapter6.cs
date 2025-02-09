@@ -17,17 +17,54 @@ public static class Chapter6
         //var str2 = Console.ReadLine();
         //var equal = str1.Equals(str2, StringComparison.OrdinalIgnoreCase);
         //Console.WriteLine(equal);
-        // 問題6.2
-        var str1 = Console.ReadLine();
-        if (int.TryParse(str1, out int num2))
+        //// 問題6.2
+        //var str1 = Console.ReadLine();
+        //if (int.TryParse(str1, out int num2))
+        //{
+        //    var str2 = num2.ToString("N0");
+        //    Console.WriteLine(str2);
+        //}
+        //else
+        //{
+        //    Console.WriteLine("無効な入力です。整数を入力してください。");
+        //}
+        // 問題6.3
+        var str = "Jackdaws love my big sphinx of quartz";
+        // 問題6.3,1
+        var whiteSpaceCount = str.Count(c => c == ' ');
+        Console.WriteLine(whiteSpaceCount);
+        // 問題6.3,2
+        var str2 = str.Replace("big", "small");
+        Console.WriteLine(str2);
+        // 問題6.3,3
+        var strs = str.Split(" ");
+        var sb = new StringBuilder();
+        foreach ( var s in strs )
         {
-            var str2 = num2.ToString("N0");
-            Console.WriteLine(str2);
+            sb.Append(s);
+            sb.Append(" ");
         }
-        else
+        var str3 = sb.ToString().TrimEnd();
+        Console.WriteLine(str3);
+        // 問題6.3,4
+        Console.WriteLine(strs.Count());
+        // 問題6.3,5
+        strs
+            .Where(s=>s.Length <= 4).ToList()
+            .ForEach(s => Console.WriteLine(s));
+        // 問題6.4
+        var str4 = "Novelist=谷崎潤一郎;BestWork=春琴抄;Born=1886";
+        var dict = new Dictionary<string, string>
         {
-            Console.WriteLine("無効な入力です。整数を入力してください。");
-        }
-
+            {"Novelist", "作家" },
+            {"BestWork", "代表作" },
+            {"Born", "誕生年" },
+        };
+        var strArray = str4.Split(";");
+        strArray
+            .Select(str => dict.Aggregate(str, (current, item) => current.Replace(item.Key, item.Value)))
+            .Select(str => str.Replace("=", ":"))
+            .ToList()
+            .ForEach(Console.WriteLine);
     }
 }
