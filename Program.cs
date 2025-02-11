@@ -8,6 +8,7 @@ var chapters = new List<(string Title, Action Do)>
     ("Chapter4", Chapter4.Do),
     ("Chapter5", Chapter5.Do),
     ("Chapter6", Chapter6.Do),
+    ("Chapter7", Chapter7.Do),
 };
 
 foreach (var chapter in  chapters)
