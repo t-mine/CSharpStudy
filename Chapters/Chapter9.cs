@@ -34,7 +34,7 @@ public static class Chapter9
         // 問題9.3
         var timeWatch = new TimeWatch();
         timeWatch.Start();
-        Thread.Sleep(1000);
+        Thread.Sleep(1);
         var elapsed = timeWatch.Stop();
         Console.WriteLine(elapsed.TotalMilliseconds);
     }
